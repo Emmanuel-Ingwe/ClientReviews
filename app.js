@@ -54,5 +54,5 @@ let currentItem = 0;
 // load iniitial item
 window.addEventListener("DOMContentLoaded", () => {
   const item = reviews[currentItem];
-  img;
+  img.src = item.img;
 });
