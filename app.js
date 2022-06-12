@@ -52,7 +52,9 @@ const randomBtn = document.querySelector('.random-btn');
 let currentItem = 0;
 
 // load iniitial item
-window.addEventListener("DOMContentLoaded", () => { });
+window.addEventListener("DOMContentLoaded", () => {
+  showPerson(currentItem);
+});
 
 // show person based on item
 
@@ -61,5 +63,27 @@ function showPerson(person) {
   img.src = item.img;
   author.textContent = item.name;
   job.textContent = item.job;
-  info.textContent = item.info;
+  info.textContent = item.text;
 }
+
+//  show person
+nextBtn.addEventListener('click', () => {
+  currentItem++;
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
+  }
+  showPerson(currentItem);
+});
+
+prevBtn.addEventListener('click', () => {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson(currentItem);
+});
+
+randomBtn.addEventListener('click', () => {
+  currentItem = Math.floor(Math.random() * reviews.length);
+  showPerson(currentItem);
+});
